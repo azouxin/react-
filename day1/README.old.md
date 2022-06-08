@@ -14,6 +14,6 @@ nrm 切换镜像 nrm use npm  | nrm use taobao $
 ## 类组件demo
 class MyDemo extends React.Component {
   render(){
-    return <div></div>
+    return `<div></div>`
   }
 }
