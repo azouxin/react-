@@ -10,3 +10,10 @@ react hooks react路由 redux 组件库 immutable mobx react+TS 单元测试 dav
 $ create-react-app 
 nrm 切换镜像 nrm use npm  | nrm use taobao $
 # react 18.1.0
+# react组件
+## 类组件demo
+class MyDemo extends React.Component {
+  render(){
+    return <div></div>
+  }
+}
