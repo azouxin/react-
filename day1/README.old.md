@@ -17,3 +17,4 @@ class MyDemo extends React.Component {
     return `<div></div>`
   }
 }
+## 函数式组件（16.8之前叫无状态组件）16.8之后hooks就可以有状态
