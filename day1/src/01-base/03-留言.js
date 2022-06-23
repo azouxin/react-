@@ -7,21 +7,19 @@ export class App extends React.Component {
   inster1 = () => {
     let val = this.mytext.current.value;
     let id = this.state.list?.slice(-1)[0]?.id ? this.state.list?.slice(-1)[0]?.id : 0;
-    // console.log(val, 'val');
-    this.state.list.push({
+    let newarr = [...this.state.list];
+    newarr.push({
       id: id + 1,
       value: val,
     });
     this.setState({
-      list: this.state.list,
+      list: newarr,
     });
   };
   removeitem = (val) => {
-    console.log(this.state.list, val);
-    this.state.list = this.state.list.filter((item) => item.id != val.id);
-    console.log(this.state.list, val);
+    let newarr = this.state.list.filter((item) => item.id != val.id);
     this.setState({
-      list: this.state.list,
+      list: newarr,
     });
   };
   state = {
