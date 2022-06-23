@@ -4,16 +4,30 @@ import React from 'react';
 import './01-index/index.css'; //导入css
 // 事件绑定this指向undefined undefined
 export class App extends React.Component {
-  inster() {
-    console.log(this);
-  }
   inster1 = () => {
-    console.log(this.mytext.current.value);
+    let val = this.mytext.current.value;
+    let id = this.state.list?.slice(-1)[0]?.id ? this.state.list?.slice(-1)[0]?.id : 0;
+    // console.log(val, 'val');
+    this.state.list.push({
+      id: id + 1,
+      value: val,
+    });
+    this.setState({
+      list: this.state.list,
+    });
   };
-  inster2 = (val) => {
-    console.log(val);
+  removeitem = (val) => {
+    console.log(this.state.list, val);
+    this.state.list = this.state.list.filter((item) => item.id != val.id);
+    console.log(this.state.list, val);
+    this.setState({
+      list: this.state.list,
+    });
   };
-  list = ['123'];
+  state = {
+    list: [{ id: 1, value: '111' }],
+  };
+
   mytext = React.createRef();
   render() {
     let bgc = {
@@ -23,22 +37,21 @@ export class App extends React.Component {
     return (
       <section>
         <input ref={this.mytext}></input>
-        <button onClick={this.inster.bind(this)}>add</button>
-        <button onClick={this.inster1}>add1</button>
-        <button
-          style={bgc}
-          onClick={(e) => {
-            console.log(e, 'e');
-            this.inster2(bgc);
-          }}
-        >
-          add2
+        <button style={bgc} onClick={this.inster1}>
+          add
         </button>
         <ul>
-          {this.list.map((item) => (
-            <li key={item}>
-              {item}
-              <button>del</button>
+          {this.state.list.map((item) => (
+            <li key={item.id}>
+              {item.value}
+              <button
+                onClick={(e) => {
+                  console.log(e, item);
+                  this.removeitem(item);
+                }}
+              >
+                del
+              </button>
             </li>
           ))}
         </ul>

@@ -41,3 +41,6 @@ react严格模式推荐
 用myRef=React.createRef()去创建ref  <input ref={this.myRef}/>
 获取就是this.myRef.current
 ## react状态管理
+改变状态setState()传递对象就是合并之前的状态进行更新
+<!-- 列表渲染map需要加key -->
+diff算法
