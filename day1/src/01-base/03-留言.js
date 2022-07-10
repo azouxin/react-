@@ -1,4 +1,5 @@
 import React from 'react';
+import './css/01.css';
 // style期望是一个对象
 // 组件类一定要继承react的component
 import './01-index/index.css'; //导入css
@@ -15,6 +16,7 @@ export class App extends React.Component {
     this.setState({
       list: newarr,
     });
+    this.mytext.current.value = '';
   };
   removeitem = (val) => {
     let newarr = this.state.list.filter((item) => item.id != val.id);
@@ -23,7 +25,7 @@ export class App extends React.Component {
     });
   };
   state = {
-    list: [{ id: 1, value: '111' }],
+    list: [],
   };
 
   mytext = React.createRef();
@@ -38,26 +40,32 @@ export class App extends React.Component {
         <button style={bgc} onClick={this.inster1}>
           add
         </button>
-        <ul>
-          {this.state.list.map((item) => (
-            <li key={item.id}>
-              {item.value}
-              <button
-                onClick={(e) => {
-                  console.log(e, item);
-                  this.removeitem(item);
-                }}
-              >
-                del
-              </button>
-            </li>
-          ))}
-        </ul>
+        {this.state.list.length > 0 ? (
+          <ul>
+            {this.state.list.map((item) => (
+              <li key={item.id}>
+                {item.value}
+                <button
+                  onClick={(e) => {
+                    console.log(e, item);
+                    this.removeitem(item);
+                  }}
+                >
+                  del
+                </button>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <Myfn></Myfn>
+        )}
       </section>
     );
   }
 }
 // 函数式组件
 function Myfn() {
-  return <div>函数式组件</div>;
+  return <div>暂无数据</div>;
 }
+// xss代码防护禁止代码注入<span><span/>会以字符串形式
+// 富文本展示dangerouslySetInnerHTML={{__html:<></>}}

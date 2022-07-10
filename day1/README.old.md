@@ -40,7 +40,23 @@ react事件和原生事件有什么区别
 react严格模式推荐
 用myRef=React.createRef()去创建ref  <input ref={this.myRef}/>
 获取就是this.myRef.current
+和vue的ref语法不同
 ## react状态管理
-改变状态setState()传递对象就是合并之前的状态进行更新
+改变状态setState()传递对象就是合并之前的状态进行更新异步更新为了考虑性能
+重要 setstate 异步更新
+setstate是异步更新状态第二个参数就可以知道啥时候更新完成
+setstate在异步中（settimeout，promise）就是同步执行
 <!-- 列表渲染map需要加key -->
 diff算法
+## xss攻击
+特定情况去使用
+react和vue都会自带防御xss
+xss代码防护禁止代码注入<span><span/>会以字符串形式
+富文本展示dangerouslySe tInnerHTML={{__html:<></>}}和vue的自定义指令v-html一样
+<!-- 接口请求头限制 -->
+参数给了还是报错
+## react propsType效应
+prop-types
+是定义在类身上的propType属性
+用static直接在类里面定义 static propTypes={}
+defaultProps默认值  static defaultProps={}
