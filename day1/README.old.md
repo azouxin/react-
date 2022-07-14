@@ -42,10 +42,13 @@ react严格模式推荐
 获取就是this.myRef.current
 和vue的ref语法不同
 ## react状态管理
-改变状态setState()传递对象就是合并之前的状态进行更新异步更新为了考虑性能
+改变状态setState()传递对象就是合并之前的状态进行更新异步更新为了考虑性能=>会调用rendern
 重要 setstate 异步更新
 setstate是异步更新状态第二个参数就可以知道啥时候更新完成
 setstate在异步中（settimeout，promise）就是同步执行
+有状态组件控制无状态组件多写无状态组件状态管理多个组件定义会变复杂
+受控组件非受控组件 ref（非受控组件React.createRef()）defaultValue表单默认值
+input事件和change事件是一个效果jsx中
 <!-- 列表渲染map需要加key -->
 diff算法
 ## xss攻击
