@@ -10,6 +10,8 @@ export default class Cinema extends Component {
     this.state = {
       cinemas: [],
     };
+  }
+  componentDidMount() {
     axios
       .get('https://m.maizuo.com/gateway?cityId=110100&ticketFlag=1&k=2395953', {
         headers: {
@@ -30,9 +32,9 @@ export default class Cinema extends Component {
             data: { data },
           } = res;
           console.log(data);
-          // this.setState({
-          //   cinemas: data.cinemas,
-          // });
+          this.setState({
+            cinemas: data.cinemas,
+          });
         },
         (err) => {
           console.log(err);
@@ -42,8 +44,8 @@ export default class Cinema extends Component {
   render() {
     return (
       <section>
-        {this.state.cinemas.map((item) => (
-          <div key={item.cityId}>{item.address}</div>
+        {this.state.cinemas.map((item, i) => (
+          <div key={i}>{item.address}</div>
         ))}
       </section>
     );

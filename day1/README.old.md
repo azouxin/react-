@@ -47,8 +47,10 @@ react严格模式推荐
 setstate是异步更新状态第二个参数就可以知道啥时候更新完成
 setstate在异步中（settimeout，promise）就是同步执行
 有状态组件控制无状态组件多写无状态组件状态管理多个组件定义会变复杂
-受控组件非受控组件 ref（非受控组件React.createRef()）defaultValue表单默认值
+受控组件非受控组件 ref（非受控组件React.createRef()）defaultValue表单默认值受控组件有状态去给ui setState更改state调用render函数更新ui
 input事件和change事件是一个效果jsx中
+父子通信，子组件无法更改父组件的state，子组件通知父组件让父组件进行更改state（回调函数方式实现），更改ui
+为啥子组件不推荐有状态，父组件无法对子组件状态改变做出相对应的变化，设计原则是单向数据流在父组件定义状态可以更好的去控制子组件
 <!-- 列表渲染map需要加key -->
 diff算法
 ## xss攻击
