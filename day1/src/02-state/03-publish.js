@@ -19,6 +19,7 @@ export default class App extends Component {
       console.log(text);
     });
   }
+
   state = {
     footerstxt: [
       { label: '主页', isActive: true },

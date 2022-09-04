@@ -85,14 +85,21 @@ this.props.children拿到内容
 ## 生命周期
 调度机制，持续执行到相应的阶段就会执行相应的钩子函数
 1. 初始化阶段
-componentWillMount:render之前最后一次修改状态的机会
+componentWillMount:render之前最后一次修改状态的机会 不推荐使用
 render：渲染函数（setState就会调用render函数）
 componentDidMount：Dom加载完毕之后触发可以在这一步做dom操作
 2. 运行阶段
-componentWillReceiveProps:父组件修改属性触发
-shouldComponentUpdate:返回false会阻止render调用
-componentWillUpdate:不能改属性和状态
+componentWillReceiveProps:父组件修改属性触发 (组件将要接收到props时)（nextProps参数）就是拿到最新的属性 利用属性做请求处理或者把属性转化为自己的状态
+shouldComponentUpdate:返回false会阻止render调用 （组件应该更新吗）参数用法 nextProps(新的属性) nextState（新的状态）用来做判断禁止无效的虚拟Dom更新 
+componentWillUpdate:不能改属性和状态 不推荐使用
 render:只能访问this.props和state,不允许修改状态和Dom输出
-componentDidUpdate:可以修改Dom
+componentDidUpdate:可以修改Dom dom更新后操作
+参数用法 prevProps(老的属性) prevState（老的状态）用来做判断
 3. 销毁阶段
 componentWillunMount:组件销毁清除定时器，事件监听器
+老生命周期的问题 
+（1）componentWillMount 在ssr中这方法会被调用多次，绑定事件无法解绑，内存泄漏，变的不够高效
+（2）componentWillReceiveProps 外部组件多次更新会导致不必要的请求
+（3）componentWillUpdate 记录更新前的属性和状态，与componentDidUpdate时间过长会导致状态不行
+4. 新的生命周期 替代
+   getDerivedStatusFromProps第一次的初始化组件以及后续的更新过程中返回一个新的state,返回null不需要更新state
