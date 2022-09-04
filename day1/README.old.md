@@ -37,7 +37,7 @@ preventDefault阻止默认事件
 react事件和原生事件有什么区别
 1.语法不同 2.react事件是采用事件代理绑定根节点事件冒泡，的模式不会绑定到dom
 ## Ref应用
-react严格模式推荐
+react严格模式推荐（render执行两次有一次是去检测副作用）
 用myRef=React.createRef()去创建ref  <input ref={this.myRef}/>
 获取就是this.myRef.current
 和vue的ref语法不同
@@ -65,3 +65,34 @@ prop-types
 是定义在类身上的propType属性
 用static直接在类里面定义 static propTypes={}
 defaultProps默认值  static defaultProps={}
+## 组件通信
+1. ref 
+2. context(
+  const GlobalContext=React.createContext()生成context
+  包裹组件（注册）<GlobalContext.Provider>包裹组件</GlobalContext.Provider>
+  使用 <GlobalContext.Consumer>
+  （）=>{
+    return jsx表达式
+  }
+  </GlobalContext.Consumer>
+) 
+3. (订阅发布模式（subscribe，publish）eventbus)
+4.  状态提升
+5.   props
+## 插槽
+this.props.children拿到内容
+提升了组件复用的扩展性（比如封装一个table表格就可以插槽动态的去添加操作里面的内容要是没有插槽就会在组件里面用属性做很多条件判断降低了组件的灵活性）
+## 生命周期
+调度机制，持续执行到相应的阶段就会执行相应的钩子函数
+1. 初始化阶段
+componentWillMount:render之前最后一次修改状态的机会
+render：渲染函数（setState就会调用render函数）
+componentDidMount：Dom加载完毕之后触发可以在这一步做dom操作
+2. 运行阶段
+componentWillReceiveProps:父组件修改属性触发
+shouldComponentUpdate:返回false会阻止render调用
+componentWillUpdate:不能改属性和状态
+render:只能访问this.props和state,不允许修改状态和Dom输出
+componentDidUpdate:可以修改Dom
+3. 销毁阶段
+componentWillunMount:组件销毁清除定时器，事件监听器
