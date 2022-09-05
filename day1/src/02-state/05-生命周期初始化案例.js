@@ -6,6 +6,12 @@ export default class App extends Component {
   //   // 优先级低可能会被打断
   //   console.log('Dom加载前上树之前的最后一次状态更改');
   // }
+  state = { name: 1 };
+  // return 出来的对象和state进行合并 初始化和更新状态都执行的逻辑
+  static getDerivedStateFromProps(nextProps, nextStatus) {
+    console.log(nextProps, nextStatus, '1');
+    return {};
+  }
   componentDidMount() {
     // 可以做axios请求YYDS
     // 订阅函数

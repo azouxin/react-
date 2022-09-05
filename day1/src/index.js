@@ -2,7 +2,7 @@
 import React from 'react';
 // reactDom包
 import ReactDom from 'react-dom/client';
-import App from './02-state/05-生命周期初始化案例';
+import App from './02-state/06-getShuhotBeforUpdate';
 
 const GlobalContext = React.createContext();
 
