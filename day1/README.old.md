@@ -80,7 +80,7 @@ defaultProps默认值  static defaultProps={}
 4.  状态提升
 5.   props
 ## 插槽
-this.props.children拿到内容
+this.props.children拿到内容 this.props.children[0]就是拿到第一个元素
 提升了组件复用的扩展性（比如封装一个table表格就可以插槽动态的去添加操作里面的内容要是没有插槽就会在组件里面用属性做很多条件判断降低了组件的灵活性）
 ## 生命周期
 调度机制，持续执行到相应的阶段就会执行相应的钩子函数
@@ -102,8 +102,15 @@ componentWillunMount:组件销毁清除定时器，事件监听器
 （2）componentWillReceiveProps 外部组件多次更新会导致不必要的请求
 （3）componentWillUpdate 记录更新前的属性和状态，与componentDidUpdate时间过长会导致状态不行（老的props,老的State，第三个参数是 getSnaphotBeforeUpdate返回值）
 4. 新的生命周期 
-   getDerivedStatusFromProps第一次的初始化组件以及后续的更新过程中返回一个新的state,返回null不需要更新state（static方法 必须定义状态）搭配componentDidUpdate使用用老的Props和老的Status 替代(componentWillReceiveProps,componentWillMount)
+   getDerivedStateFromProps第一次的初始化组件以及后续的更新过程中返回一个新的state,返回null不需要更新state（static方法 必须定义状态）搭配componentDidUpdate使用用老的Props和老的Status 替代(componentWillReceiveProps,componentWillMount)
 
 getSnapshotBeforeUpdate（需要更新之前的记录状态，比render晚执行）替代componentWillUpdate 特殊场景使用详情回退高度记录返回页面还是哪个高度 做对比
 
-pureComponent组件 react的自动优化shouldComponentUpdate 状态和props经常更改就不需要使用pureComponent
+pureComponent组件 react的自动优化shouldComponentUpdate 状态和props经常更改就不需要使用pureComponent\
+## 函数式组件
+<!-- hooks -->
+函数组件没有this
+const [state,setState]=useState('')
+每次setState就会重新执行函数
+useEffect副作用强大功能
+第一个参数回调函数，第二个参数空数组只会执行一次（依赖）在回调用了的依赖，就告诉数组使用了这依赖（找依赖确定哪个式依赖）

@@ -2,7 +2,7 @@
 import React from 'react';
 // reactDom包
 import ReactDom from 'react-dom/client';
-import App from './02-state/06-getShuhotBeforUpdate';
+import App from './03-hooks/01-hooks';
 
 const GlobalContext = React.createContext();
 
