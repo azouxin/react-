@@ -113,4 +113,14 @@ pureComponent组件 react的自动优化shouldComponentUpdate 状态和props经�
 const [state,setState]=useState('')
 每次setState就会重新执行函数
 useEffect副作用强大功能
-第一个参数回调函数，第二个参数空数组只会执行一次（依赖）在回调用了的依赖，就告诉数组使用了这依赖（找依赖确定哪个式依赖）
+第一个参数回调函数，第二个参数空数组只会执行一次（有依赖就是多次依赖）在回调用了的依赖，就告诉数组使用了这依赖（找依赖确定哪个是依赖）
+销毁清除定时器和事件就需要在useEffect返回值是一个函数可以进行清除
+useLayoutEffect（会造成页面阻塞componentDidMount,componentDidUpdate）调用时间不一样建议修改dom使用该钩子函数因为他是在dom树在构建的时候使用的
+useEffect是在dom树创建完毕
+记忆函数useCallback提升性能
+解决了函数重新定义的问题，第一个参数是回调函数第二个参数是数组保存的依赖
+useMemo对比useCallback会调用第一个参数回调函数返回一个函数，（vue计算属性）
+useRef()模板引用 保存变量
+useContext let context = React.creactContext()
+useContext(context)子组件使用不需要包裹 return 比class简单
+useReducer 方案抽离状态
