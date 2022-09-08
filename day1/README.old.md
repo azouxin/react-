@@ -119,8 +119,19 @@ useLayoutEffect（会造成页面阻塞componentDidMount,componentDidUpdate）�
 useEffect是在dom树创建完毕
 记忆函数useCallback提升性能
 解决了函数重新定义的问题，第一个参数是回调函数第二个参数是数组保存的依赖
-useMemo对比useCallback会调用第一个参数回调函数返回一个函数，（vue计算属性）
+
+useMemo对比useCallback会调用第一个参数回调函数返回一个值，（vue计算属性）
 useRef()模板引用 保存变量
 useContext let context = React.creactContext()
 useContext(context)子组件使用不需要包裹 return 比class简单
-useReducer 方案抽离状态
+useReducer （状态管理） 方案抽离状态 和useContext搭配使用 降低耦合度
+<!--reducer处理器 对应 dispatch -->
+<!-- initState 状态 对应 state -->
+const [state, dispatch] = useReducer(reducer, initState);
+自定义hooks
+抽离逻辑然后调用 
+# router react-router-dom@5
+重定向 Redirect
+分支匹配 Switch
+路由组件 Route
+路由模式 HashPouter

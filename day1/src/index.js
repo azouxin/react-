@@ -2,7 +2,7 @@
 import React from 'react';
 // reactDom包
 import ReactDom from 'react-dom/client';
-import App from './03-hooks/02-useContext';
+import App from './04-router5/01-router';
 
 // App根组件
 const root = ReactDom.createRoot(document.getElementById('root'));
