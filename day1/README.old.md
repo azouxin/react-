@@ -132,6 +132,28 @@ const [state, dispatch] = useReducer(reducer, initState);
 抽离逻辑然后调用 
 # router react-router-dom@5
 重定向 Redirect
-分支匹配 Switch
+分支匹配 Switch(路由刷新有问题使用)
 路由组件 Route
-路由模式 HashPouter
+路由模式 HashPouter 
+<!-- 路由嵌套还是以下api组件 -->
+重定向 Redirect 属性 （to from）
+分支匹配 Switch(路由刷新有问题使用)
+路由组件 Route 属性 （path component）
+路由模式 HashPouter  BrowserRouter(当成请求向后端请求)
+<!-- 声明式 -->
+<NavLink></NavLink>
+属性 to activeStyle
+<!-- 编程式 -->
+ props.history.push('/films/tab2');
+ 或则react-dom-router的hooks
+ useHistory
+ <!-- 获取路由的参数 -->
+
+props.location.query|props.location.state
+动态路由需要先配置path动态
+<!-- 路由守卫 -->
+<!-- 条件判断渲染 会丢失props需要自己在函数中传递-->
+withRouter(组件)反回组件：高阶组件解决
+
+
+<Route to='/details' render={()=>(x?<a></a>:<b></b>)}></Route>
