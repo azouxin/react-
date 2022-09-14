@@ -157,3 +157,10 @@ withRouter(组件)反回组件：高阶组件解决
 
 
 <Route to='/details' render={()=>(x?<a></a>:<b></b>)}></Route>
+<!-- 反向代理 -->
+查文档creact-app-react
+https://create-react-app.dev/docs/proxying-api-requests-in-development
+css文件名字改为index.module.css Module(样式编译重命名) 
+
+## Redux  Flux
+flow流 NPM I REDUX
