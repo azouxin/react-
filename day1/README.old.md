@@ -199,3 +199,8 @@ export function reducerCustom(reducer) {
 }
 
 case 比if else性能要好（case可以直接找到）
+<!-- react-redux -->我服了flux->redux->react-redux
+<!-- graphQL -->
+<!-- mobx -->
+<!-- immutable -->
+<!-- umi -->
